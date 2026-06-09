@@ -13,7 +13,7 @@ pipeline {
         stage('Scan - Trivy') {
             steps {
                 bat '''
-                    docker run --rm -v "%CD%:/project" aquasec/trivy:latest fs /project --format json --output trivy-report.json --scanners vuln,secret,misconfig || exit 0
+                    trivy fs . --format json --output trivy-report.json --scanners vuln,secret,misconfig || exit 0
                 '''
             }
             post {
