@@ -13,7 +13,7 @@ pipeline {
         stage('Scan - Trivy') {
             steps {
                 bat '''
-                    trivy fs . --format json --output trivy-report.json --scanners vuln,secret,misconfig || exit 0
+                    "C:\\Users\\HP\\AppData\\Local\\Microsoft\\WinGet\\Links\\trivy.exe" fs . --format json --output trivy-report.json --scanners vuln,secret,misconfig || exit 0
                 '''
             }
             post {
